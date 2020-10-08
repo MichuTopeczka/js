@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="pokazTekst()">Pokaz tekst</button>
+    <p id="MiejsceNaTekst"></p> 
+    <img id="obrazek" src="https://picsum.photos/200/300">
+    <button onclick="Zmien()">Pokaz/ukryj obrazek</button>
+    <script>
+        console.log("hello world");
+        function pokazTekst() {
+            document.getElementById('MiejsceNaTekst').innerHTML =
+        "Ten tekst znajdzie się w akapicie";
+        }
+     function Zmien() {
+         if(document.getElementById('obrazek').style.display == "block")
+        document.getElementById('obrazek').style.display = "none";
+         else
+         document.getElementById('obrazek').style.display = "block";
+     }
+    </script>
+
+
+
+</body>
+</html>
