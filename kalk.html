@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Pierwsza liczba: <input type="number" id="liczba"><br>
+    Druga liczba: <input type="number" id="liczba2"><br>
+    Wynik: <input type="number" id="wynik"><br>
+    <form action="" method="post">
+    <input type="radio" id="dodaj" name="x" value="dodaj">dodaj<br>
+    <input type="radio" id="pomnoz" name="x" value="pomnoz">pomnoz<br>
+    <input type="radio" id="podziel" name="x" value="podziel">podziel<br>
+    <input type="radio" id="odejmij" name="x" value="odejmij">odejmij<br>
+</form>
+    <button onclick="wynik()">Wynik<br></button><br><br>
+    <script>
+        function wynik() {
+        var liczba = document.getElementById('liczba').value;
+        liczba = parseInt(liczba);
+        //console.log(typeof (liczba2) );
+        var liczba2 = document.getElementById('liczba2').value;
+        liczba2 = parseInt(liczba2);
+        var wynik=0;
+
+       if(document.getElementById('dodaj').checked)
+                wynik=liczba + liczba2;
+
+                if(document.getElementById('pomnoz').checked)
+                wynik=liczba * liczba2;
+
+                if(document.getElementById('podziel').checked)
+                wynik=liczba / liczba2;
+
+                if(document.getElementById('odejmij').checked)
+                wynik=liczba - liczba2;
+
+
+console.log(wynik);
+document.getElementById('wynik').value =wynik;
+        
+    }
+
+
+    </script>
+    
+</body>
+</html>

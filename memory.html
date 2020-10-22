@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    <script>
+        var losowanaKarta = Array();
+        var odslonietaKarta = Array();
+        var odslonietaKarta1 = null;
+        losujKarty();
+        pokazKart();
+
+function pokazKart(){
+    document.getElementById('container').innerHTML = " ";
+    for(var i = 0 ; i < losowanaKarta.lenght; i++){ //rysowanie kart
+            var img = document.createElement("img");
+            if(odslonietaKarta[i] ==true)
+            img.src = losowanaKarta[i];
+            else
+                img.src = "img/plecy.jpg";
+            img.id = i.toString();
+            img.addEventListener("click", odslonKarte(), false);
+            document.getElementById('container').appendChild(img);
+        }    
+           
+}
+        function odslonKarte(event){
+            console.log(event);
+             if(odslonietaKarta1 == null){
+                 //pierwsza karta
+                 odslonietaKarta = event.src.Element.id;
+                odslonietaKarta1[event.src.Element.id] = true;
+             } else {
+                 //juz kliknieta
+                 if(losowanaKarta == event.src.Element.id) {
+                     //kliknieta 2-ga taka sama
+                     odslonietaKarta1[event.src.Element.id] = true; //pierwsza
+                     odslonietaKarta = null;
+                 } else { 
+                     //kliknieta inna karta
+                     odslonietaKarta1[odslonietaKarta1] = false; //chowamy
+
+
+                 }
+                 
+             }
+
+            pokazKart();
+        }
+        function losujKarty(){
+    var tabelaKart = Array(); //img 0x.jpg
+        for (var i = 0; i < 9; i++) {
+          var url = "img/0" + i + ".jpg"
+          tabelaKart.push(url);
+          tabelaKart.push(url);
+            
+        }
+        while(tabelaKart.length > 0){
+            var r = Math.random() * (tabelaKart.length - 1);
+            r = Math.round(r);
+            var wzieta = tabelaKart.splice(r, 1);
+            losowanaKarta.push(wzieta)
+            odslonietaKarta.push(false);
+
+        }
+          console.log(losowanaKarta);
+          console.log(odslonietaKarta);
+        
+        }
+    
+    </script>
+
+</body>
+</html>
